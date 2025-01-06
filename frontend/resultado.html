@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resultado da Correção da Redação</title>
+  </head>
+  <body>
+    <h1>Resultado da Correção da Redação</h1>
+
+    <div id="result"></div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const result = params.get("result");
+
+      if (result) {
+        const resultData = JSON.parse(decodeURIComponent(result));
+
+        document.getElementById("result").innerText = resultData.correcao;
+      } else {
+        document.getElementById("result").innerText =
+          "Nenhum resultado disponível.";
+      }
+    </script>
+  </body>
+</html>
